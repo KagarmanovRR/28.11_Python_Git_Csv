@@ -47,4 +47,4 @@ def save():
         writer = csv.DictWriter(file, delimiter=";", fieldnames=columns)
         writer.writeheader()
         writer.writerows(csv_file)
-        print("Данные добавлены в файл!")
+        print("Данные добавлены в файл")
