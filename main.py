@@ -1,4 +1,5 @@
-from emp_csv import file_open
+from emp_csv import file_open, insert, show_csv
+
 FILENAME = "data.csv"
 
 MENU = {
@@ -20,7 +21,7 @@ for key, val in MENU.items():
 while True:
     action = input('>_ ')
     if action == '1':
-        file_open()
+        print(insert(input('ФИО: '), input('пол: '), int(input('возраст: ')), input('телефон: '), input('почта: '), input('группа: '), int(input('курс: '))))
     elif action == '2':  # если - действие добавить файл
         pass
     elif action == '3':  # если - действие удалить файл
@@ -34,6 +35,6 @@ while True:
     elif action == '0':     # если - действие меню
         pass
     elif action == '7':     # если - ввывести записи
-        pass
+        show_csv()
     elif action == 'exit':  # если - действие выйти
         break
