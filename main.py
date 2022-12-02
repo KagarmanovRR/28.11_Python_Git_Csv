@@ -1,3 +1,4 @@
+from emp_csv import file_open
 FILENAME = "data.csv"
 
 MENU = {
@@ -19,7 +20,7 @@ for key, val in MENU.items():
 while True:
     action = input('>_ ')
     if action == '1':
-        pass
+        file_open()
     elif action == '2':  # если - действие добавить файл
         pass
     elif action == '3':  # если - действие удалить файл
