@@ -1,4 +1,4 @@
-from emp_csv import file_open, insert, show_csv
+from emp_csv import file_open, insert, show_csv, save
 
 FILENAME = "data.csv"
 
@@ -17,11 +17,12 @@ MENU = {
 # Вывод меню пользователю
 for key, val in MENU.items():
     print(key, '-', val)        # написать "номер действия" - "описание действия"
-
+file_open()
 while True:
     action = input('>_ ')
     if action == '1':
         print(insert(input('ФИО: '), input('пол: '), int(input('возраст: ')), input('телефон: '), input('почта: '), input('группа: '), int(input('курс: '))))
+        save()
     elif action == '2':  # если - действие добавить файл
         pass
     elif action == '3':  # если - действие удалить файл

@@ -24,15 +24,14 @@ def insert(fio, gender, age, tel, email, group, kurs):
 
 # Вывод данных
 def show_csv():
-    file_open()
     if len(csv_file) == 0:
         print(type(csv_file))
     else:
-        print('{:<5}{:<25}{:<8}{:<8}{:<12}{:<15}{:<10}{:<5}'.format(
+        print('{:<10}{:<20}{:<5}{:<8}{:<15}{:<20}{:<10}{:<5}'.format(
             'студбилет', 'ФИО', 'пол', 'возраст', 'телефон', 'почта', 'группа', 'курс',
         ))
         for el in csv_file:
-            print('{:<5}{:<25}{:<8}{:<8}{:<12}{:<15}{:<10}{:<5}'.format(el["студбилет"],
+            print('{:<10}{:<20}{:<5}{:<8}{:<15}{:<20}{:<10}{:<5}'.format(el["студбилет"],
                                                         el["ФИО"],
                                                         el["пол"],
                                                         el["возраст"],
@@ -40,3 +39,12 @@ def show_csv():
                                                         el['почта'],
                                                         el['группа'],
                                                         el['курс']))
+
+# Сохранение
+def save():
+    with open('data.csv', "w", encoding="utf-8", newline="") as file:
+        columns = ['студбилет', 'ФИО', 'пол', 'возраст', 'телефон', 'почта', 'группа', 'курс']
+        writer = csv.DictWriter(file, delimiter=";", fieldnames=columns)
+        writer.writeheader()
+        writer.writerows(csv_file)
+        print("Данные добавлены в файл!")
