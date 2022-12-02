@@ -1,4 +1,4 @@
-from emp_csv import file_open, insert, show_csv, save, drop_by_arg, find
+from emp_csv import file_open, insert, show_csv, save, drop_by_arg, find, avg_age
 
 FILENAME = "data.csv"
 
@@ -33,11 +33,11 @@ while True:
         pass
     elif action == '5':  # если - действие ввести средний возраст
         pass
-    elif action == '6':     # если - действие сохранить файл
-        pass
-    elif action == '0':     # если - действие меню
-        pass
+    elif action == '6':     # если - действие старше 18
+        avg_age()
     elif action == '7':     # если - ввывести записи
         show_csv()
+    elif action == '0':     # если - действие меню
+        pass
     elif action == 'exit':  # если - действие выйти
         break

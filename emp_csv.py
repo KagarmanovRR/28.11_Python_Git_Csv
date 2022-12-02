@@ -62,3 +62,7 @@ def drop_by_arg(val, col_name='студбилет'):
 # Поиск
 def find(val, col_name='ФИО'):
     print(*list(filter(lambda x: x[col_name] == val, csv_file)))
+
+# Вывести студентов старше 18 лет
+def avg_age():
+    print(*list(filter(lambda x: int(x['возраст']) > 18, csv_file)), sep='\n')
