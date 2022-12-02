@@ -1,4 +1,4 @@
-from emp_csv import file_open, insert, show_csv, save
+from emp_csv import file_open, insert, show_csv, save, drop_by_arg
 
 FILENAME = "data.csv"
 
@@ -20,11 +20,12 @@ for key, val in MENU.items():
 file_open()
 while True:
     action = input('>_ ')
-    if action == '1':
+    if action == '1': # если - действие Добавление
         print(insert(input('ФИО: '), input('пол: '), int(input('возраст: ')), input('телефон: '), input('почта: '), input('группа: '), int(input('курс: '))))
         save()
-    elif action == '2':  # если - действие добавить файл
-        pass
+    elif action == '2':  # если - действие Удаление
+        val = input('Значение: ')
+        print(drop_by_arg(val, col_name='студбилет'))
     elif action == '3':  # если - действие удалить файл
         pass
     elif action == '4':  # если - действие найти по значению

@@ -48,3 +48,13 @@ def save():
         writer.writeheader()
         writer.writerows(csv_file)
         print("Данные добавлены в файл")
+
+# Удалить по аргументу
+def drop_by_arg(val, col_name='студбилет'):
+    global csv_file
+    try:
+        csv_file = list(filter(lambda x: x[col_name] != val, csv_file))
+        save()
+    except Exception as e:
+        return f'Строка со значением {val} поля {col_name} не найдена'
+    return (f'Строка со значением "{val}" столбца "{col_name}" удалена.')
