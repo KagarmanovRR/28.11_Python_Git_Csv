@@ -39,6 +39,7 @@ while True:
     elif action == '7':     # если - ввывести записи
         show_csv()
     elif action == '0':     # если - действие меню
-        pass
+        for key, val in MENU.items():
+            print(key, '-', val)
     elif action == 'exit':  # если - действие выйти
         break
