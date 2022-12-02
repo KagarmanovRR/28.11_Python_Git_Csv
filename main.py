@@ -1,16 +1,38 @@
-# This is a sample Python script.
+FILENAME = "data.csv"
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+MENU = {
+    '1': 'Добавление нового студента',
+    '2': 'Удаление студента по номеру студ. билета',
+    '3': 'Поиск студента по ФИО',
+    '4': 'Вывести ФИО студентов из указанной группы',
+    '5': 'Перевод студентов на следующий курс',
+    '6': 'Вывести студентов старше 18 лет.',
+    '7': 'Вывести данные о студенте',
+    '0': '<-Меню',
+    'exit': 'Выход'
+}
 
+# Вывод меню пользователю
+for key, val in MENU.items():
+    print(key, '-', val)        # написать "номер действия" - "описание действия"
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+while True:
+    action = input('>_ ')
+    if action == '1':
+        pass
+    elif action == '2':  # если - действие добавить файл
+        pass
+    elif action == '3':  # если - действие удалить файл
+        pass
+    elif action == '4':  # если - действие найти по значению
+        pass
+    elif action == '5':  # если - действие ввести средний возраст
+        pass
+    elif action == '6':     # если - действие сохранить файл
+        pass
+    elif action == '0':     # если - действие меню
+        pass
+    elif action == '7':     # если - ввывести записи
+        pass
+    elif action == 'exit':  # если - действие выйти
+        break
