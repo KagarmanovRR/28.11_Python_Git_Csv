@@ -1,4 +1,4 @@
-from emp_csv import file_open, insert, show_csv, save, drop_by_arg
+from emp_csv import file_open, insert, show_csv, save, drop_by_arg, find
 
 FILENAME = "data.csv"
 
@@ -26,8 +26,9 @@ while True:
     elif action == '2':  # если - действие Удаление
         val = input('Значение: ')
         print(drop_by_arg(val, col_name='студбилет'))
-    elif action == '3':  # если - действие удалить файл
-        pass
+    elif action == '3':  # если - действие Поиск
+        val = input('Значение: ')
+        find(val, col_name='ФИО')
     elif action == '4':  # если - действие найти по значению
         pass
     elif action == '5':  # если - действие ввести средний возраст
