@@ -1,4 +1,4 @@
-from emp_csv import file_open, insert, show_csv, save, drop_by_arg, find, avg_age
+from emp_csv import file_open, insert, show_csv, save, drop_by_arg, find, age18, group
 
 FILENAME = "data.csv"
 
@@ -30,11 +30,12 @@ while True:
         val = input('Значение: ')
         find(val, col_name='ФИО')
     elif action == '4':  # если - действие найти по значению
-        pass
+        val = input('Значение: ')
+        group(val, col_name='группа')
     elif action == '5':  # если - действие ввести средний возраст
         pass
     elif action == '6':     # если - действие старше 18
-        avg_age()
+        age18()
     elif action == '7':     # если - ввывести записи
         show_csv()
     elif action == '0':     # если - действие меню
