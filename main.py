@@ -1,4 +1,4 @@
-from emp_csv import file_open, insert, show_csv, save, drop_by_arg, find, age18, group
+from emp_csv import file_open, insert, show_csv, save, drop_by_arg, find, age18, group, perevod
 
 FILENAME = "data.csv"
 
@@ -33,7 +33,7 @@ while True:
         val = input('Значение: ')
         group(val, col_name='группа')
     elif action == '5':  # если - действие ввести средний возраст
-        pass
+        perevod()
     elif action == '6':     # если - действие старше 18
         age18()
     elif action == '7':     # если - ввывести записи

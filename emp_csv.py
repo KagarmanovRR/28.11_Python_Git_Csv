@@ -1,6 +1,7 @@
 import csv
 
 csv_file = []
+csv_file_otch = []
 
 # Открываю csv файл
 def file_open():
@@ -22,6 +23,31 @@ def insert(fio, gender, age, tel, email, group, kurs):
         return f'Ошибка при добавленнии новой записи {e}'
     return "Данные добавлены."
 
+# Перевод студентов на следующий курс
+def perevod():
+    global csv_file
+    global csv_file_otch
+    try:
+        for el in csv_file:
+            el["курс"] += 1;
+            if el["курс"] == 5:
+                mx = max(csv_file_otch, key=lambda x: int(x['студбилет']))
+                csv_file_otch.append(
+                    {'студбилет': int(mx['студбилет']) + 1, 'ФИО': el["ФИО"], 'пол': el["пол"], 'возраст': el["возраст"], 'телефон': el["телефон"],
+                     'почта': el['почта'], 'группа':  el['группа'], 'курс': el['курс']})
+                drop_by_arg(el["курс"], col_name='студбилет')
+            else:
+                mx = max(csv_file, key=lambda x: int(x['студбилет']))
+                csv_file_otch.append(
+                    {'студбилет': int(mx['студбилет']) + 1, 'ФИО': el["ФИО"], 'пол': el["пол"],
+                     'возраст': el["возраст"], 'телефон': el["телефон"],
+                     'почта': el['почта'], 'группа': el['группа'], 'курс': el['курс']})
+                drop_by_arg(el["курс"], col_name='студбилет')
+
+    except Exception as e:
+        return f'Ошибка при добавленнии новой записи {e}'
+    return "Данные добавлены."
+
 # Вывод данных
 def show_csv():
     if len(csv_file) == 0:
@@ -32,6 +58,15 @@ def show_csv():
                 print(f'Студент: {el["ФИО"]} в группе {el["группа"]} на {el["курс"]} курсе, номер студ.билета: {el["студбилет"]}')
             else:
                 print(f'Студентка: {el["ФИО"]} в группе {el["группа"]} на {el["курс"]} курсе, номер студ.билета: {el["студбилет"]}')
+    show_csvotc()
+
+def show_csvotc():
+    for el in csv_file_otch:
+        if ((el['пол']) == 'м'):
+            print(f'Студент: {el["ФИО"]} в группе {el["группа"]} на {el["курс"]} курсе, номер студ.билета: {el["студбилет"]}')
+        else:
+            print(f'Студентка: {el["ФИО"]} в группе {el["группа"]} на {el["курс"]} курсе, номер студ.билета: {el["студбилет"]}')
+
 
 # Сохранение
 def save():
